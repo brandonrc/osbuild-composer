@@ -17,33 +17,6 @@ var defaultBasePartitionTables = distro.BasePartitionTableMap{
 				UUID:     disk.BIOSBootPartitionUUID,
 			},
 			{
-				Size: 209715200, // 200 MB
-				Type: disk.EFISystemPartitionGUID,
-				UUID: disk.EFISystemPartitionUUID,
-				Payload: &disk.Filesystem{
-					Type:         "vfat",
-					UUID:         disk.EFIFilesystemUUID,
-					Mountpoint:   "/boot/efi",
-					Label:        "EFI-SYSTEM",
-					FSTabOptions: "defaults,uid=0,gid=0,umask=077,shortname=winnt",
-					FSTabFreq:    0,
-					FSTabPassNo:  2,
-				},
-			},
-			{
-				Size: 524288000, // 500 MB
-				Type: disk.XBootLDRPartitionGUID,
-				UUID: disk.FilesystemDataUUID,
-				Payload: &disk.Filesystem{
-					Type:         "xfs",
-					Mountpoint:   "/boot",
-					Label:        "boot",
-					FSTabOptions: "defaults",
-					FSTabFreq:    0,
-					FSTabPassNo:  0,
-				},
-			},
-			{
 				Size: 2147483648, // 2GiB
 				Type: disk.FilesystemDataGUID,
 				UUID: disk.RootPartitionUUID,
